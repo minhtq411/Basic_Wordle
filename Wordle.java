@@ -42,7 +42,6 @@ void main() {
         tryTimes -= 1;
 
         // if player make first guess correct -> stop
-        IO.println(String.valueOf(sol));
         if(answer.equals(secret)) {
             IO.println("You won! The answer was " + secret);
             break;
@@ -50,7 +49,7 @@ void main() {
             flag = false;
         }
 
-        // if try times ran out -> stop
+                // if try times ran out -> stop
         if(tryTimes <= 0) {
         IO.println("You lost! The answer was: " + secret);
         break;
@@ -89,5 +88,7 @@ void main() {
                 countLetters[index] -= 1;
             }
         }
+
+        IO.println(String.valueOf(sol));
     }
 }
