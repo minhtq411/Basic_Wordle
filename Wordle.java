@@ -41,6 +41,27 @@ void main() {
         String answer = (IO.readln("Tell me your guess: ")).toLowerCase();
         tryTimes -= 1;
 
+        // if player make first guess correct -> stop
+        IO.println(String.valueOf(sol));
+        if(answer.equals(secret)) {
+            IO.println("You won! The answer was " + secret);
+            break;
+        } else {
+            flag = false;
+        }
+
+        // if try times ran out -> stop
+        if(tryTimes <= 0) {
+        IO.println("You lost! The answer was: " + secret);
+        break;
+        }
+
+        // test if other conditions of inputs are true or not
+        if(checkInput(answer) == false) {
+            IO.println("Your input is not valid!");
+            break;
+        }
+
         // Create the table of counted letters
          int[] countLetters = count(arr);
 
@@ -67,27 +88,6 @@ void main() {
                 sol[i] = '?';
                 countLetters[index] -= 1;
             }
-        }
-
-        // if player make first guess correct -> stop
-        IO.println(String.valueOf(sol));
-        if(answer.equals(secret)) {
-            IO.println("You won! The answer was " + secret);
-            break;
-        } else {
-            flag = false;
-        }
-
-        // if try times ran out -> stop
-        if(tryTimes <= 0) {
-        IO.println("You lost! The answer was: " + secret);
-        break;
-        }
-
-        // test if other conditions of inputs are true or not
-        if(checkInput(answer) == false) {
-            IO.println("Your input is not valid!");
-            break;
         }
     }
 }
